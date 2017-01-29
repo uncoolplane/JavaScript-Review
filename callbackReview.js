@@ -1,89 +1,101 @@
+
+document.write("<h2>Callback Review</h2>");
+
 /* Declare and Define the functions here that will make the function calls below work properly */
 
-
-
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
+
+function first(arr, cb) {
+  return cb(arr[0]);
+}
+
 first(names, function(firstName){
-  console.log('The first name in names is ', firstName)
+  document.write('The first name in names is ', firstName + "<br>");
 });
-
-
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
-
-
-
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
+
+function last(arr, cb) {
+  return cb(arr[arr.length-1]);
+}
+
 last(names, function(lastName){
-  console.log('The last name in names is ', lastName);
+  document.write('The last name in names is ', lastName + "<br>");
 });
-
-
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
 //have the contains function return a boolean value for if the name is in the array or not.
 
-
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
+
+function contains(value, arr, cb) {
+  var index = arr.indexOf(value);
+  cb(index !== -1)
+}
+
 contains('Colt', names, function(yes){
   if(yes){
-    console.log('Colt is in the array');
+    document.write('Colt is in the array<br>');
   } else {
-    console.log('Colt is not in the list');
+    document.write('Colt is not in the list<br>');
   }
 });
 
-
-
-
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
-
-
-
 
 var numbers = [1,2,3,4,5];
 //Produces a new array of values by mapping each value in list through a transformation function
-map(numbers, function(num){
+
+function map(arr, cb) {
+  return arr.map(cb);
+}
+
+document.write(numbers + "<br>");
+
+var double = map(numbers, function(num){
   return num * 2; //returns an array of [2,4,6,8,10]
 });
 
-
-
+document.write(double + "<br>");
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
-
-
-
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
-uniq(names, function(uniqArr){
-  console.log('The new names array with all the duplicate items removed is ', uniqArr);
+
+function unique(arr, cb) {
+  var newarr = [];
+  for(var i = 0; i < arr.length; i++) {
+    var index = newarr.indexOf(arr[i]);
+    if(index === -1) {
+      newarr.push(arr[i]);
+    }
+  }
+  return cb(newarr);
+}
+
+document.write(names,"<br>");
+unique(names, function(uniqArr){
+  document.write('The new names array with all the duplicate items removed is ', uniqArr, '<br>');
 });
 
-
-
-
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
-
-
-
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
+
+function each(arr, cb) {
+  arr.forEach(cb);
+}
+
 each(names, function(item, indice){
-  console.log('The item in the ' + indice + 'position is ' + item)
+  document.write('The item in the ' + indice + ' position is ' + item + "<br>")
 });
 
-
-
-
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
-
-
-
 
 var users = [
   {
@@ -105,20 +117,32 @@ var users = [
     address: '192 East 32 North'
   },
 ];
+
+function getUserById(id, arr, cb) {
+  var index = 0;
+  for(var i = 0; i < arr.length; i++) {
+    if(arr[i].id === id) {
+      index = i;
+    }
+  }
+
+  cb(arr[index]);
+}
+
 getUserById('16t', users, function(user){
-  console.log('The user with the id 16t has the email of ' + user.email + 'the name of ' + user.name + ' and the address of ' + user.address); 
+  document.write('The user with the id 16t has the email of ' + user.email + 'the name of ' + user.name + ' and the address of ' + user.address);
 });
-
-
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
-
-
-
-//Looks through each value in the list, returning the first one that passes a truth test 
+//Looks through each value in the list, returning the first one that passes a truth test
 var numbers  = [1, 2, 3, 4, 5, 6];
-find(numbers, function(num){ 
+
+function find(arr, cb) {
+  return arr.filter(cb);
+}
+
+find(numbers, function(num){
   return num % 2 == 0; //should return 2
 })

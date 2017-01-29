@@ -119,7 +119,7 @@ function capWord(str) {
 }
 
 function capitalize(str) {
-  var arr = str.split(" ");
+  var arr = str.toLowerCase().split(" ");
   arr = arr.map(capWord);
   return arr.join(" ");
 }

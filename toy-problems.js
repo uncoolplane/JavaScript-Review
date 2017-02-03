@@ -155,12 +155,31 @@ longestWords("Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo") 
 
 /*
 
-If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of
+these multiples is 23.
 
 Find the sum of all the multiples of 3 or 5 below 1000.
 
 */
+function multiples() {
+  var total = 0;
+  for(var i = 1; i < 1000; i++) {
+    if(i % 3 === 0 || i % 5 === 0) {
+      total += i;
+      console.log("num:" + i);
+      if(i % 3 === 0) {
+      console.log(".....divide by 3");
+      }
 
+      if(i % 5 === 0) {
+      console.log('.....divide by 5');
+      }
+    }
+  }
+  console.log("total:" + total);
+}
+
+multiples();
 
 /*
 
@@ -177,3 +196,40 @@ console.log(sum(2,3));   // Outputs 5
 console.log(sum(2)(3));  // Outputs 5
 
 */
+
+/*
+Create a function that goes through the numbers 1-100
+if the number is divisible by 3, console log "Fizz"
+if the number is divisible by 5, console log "Buzz"
+if the number is divisible by both, console log "FizzBuzz"
+otherwise, just console log the number
+*/
+
+function fizz() {
+  for(var i = 1; i <= 100; i++) {
+    if(i % 3 === 0 && i % 5 === 0) {
+      console.log("FizzBuzz..", i);
+    } else if (i % 3 === 0) {
+      console.log("Fizz..", i);
+    } else if(i % 5 === 0) {
+      console.log("Buzz..", i);
+    } else {
+      console.log(i);
+    }
+  }
+}
+
+fizz();
+
+
+/*Check if string is palindrome*/
+function palindrome(str) {
+  str = str.split(' ').join('').toLower();
+  var check = str.split('').reverse().join('');
+  if(check === str) {
+    return true;
+  } else {
+    return false;
+  }
+
+}

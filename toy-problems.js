@@ -233,3 +233,71 @@ function palindrome(str) {
   }
 
 }
+
+/*
+condition1 //if this is truthy 'Savings'
+condition2 //if this is truthy 'Debits'
+condition3 //if this is truty 'Retirement'
+*/
+var ourArray = [];
+var c1 = "Savings";
+var c2 = "Debits";
+var c3 = "Retirement";
+
+function testConditions(condition1, condition2, condition3) {
+  if(condition1 && ourArray.indexOf(c1) === -1) {
+    ourArray.push(c1);
+  }
+
+  if(condition2 && ourArray.indexOf(c2) === -1) {
+    ourArray.push(c2);
+  }
+
+  if(condition3 && ourArray.indexOf(c3) === -1) {
+    ourArray.push(c3);
+  }
+}
+
+testConditions(true, false, true);
+document.write(ourArray);
+
+var animals = [
+  {
+    name: 'lion',
+    isMammal: true
+  },
+  {
+    name: 'monkey',
+    isMammal : true
+  },
+  {
+    name: 'dragon',
+    isMammal: false
+  },
+  {
+    name:'shark',
+    isMammal : false
+  }
+];
+
+var noMammals = animals.filter(function(animal) {
+  return !animal.isMammal;
+});
+
+animals.forEach(function(item) {
+  item.isAnimal = true;
+});
+
+console.log(animals);
+console.log(noMammals);
+
+var cond1 = true;
+var cond2 = false;
+var cond3 = true;
+
+var arr = [
+  cond1 ? 'lion' : null, //cond1 && 'lion'
+  cond2 ? 'shark' : null, //cond2 && 'shark'
+  cond3 ? 'dragon' : null //cond3 && 'dragon'
+].filter(function(item) {return item});
+console.log(arr);

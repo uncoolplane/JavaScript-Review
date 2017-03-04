@@ -301,3 +301,45 @@ var arr = [
   cond3 ? 'dragon' : null //cond3 && 'dragon'
 ].filter(function(item) {return item});
 console.log(arr);
+
+
+/*
+http://www.programmerinterview.com/index.php/puzzles/25-horses-3-fastest-5-races-puzzle/
+25 horses
+ you can race 5 at a time
+ find the 3 fastest horses in least amount of races
+
+ 5 --> 3
+ 5 --> 3  | 5 --> 3
+ 5 --> 3  | 5 --> 3 | 5 --> 3
+ 5 --> 3  | 5 --> 3 | 5 --> 3 | 5 --> 3
+ 5 --> 3  | 5 --> 3 | 5 --> 3 | 5 --> 3 | 5 --> 3
+
+ X X X X X
+ X X X X X
+ X X X X X
+ X X X X X
+ X X X X X
+
+ X X X X X
+ X X X X
+ X X X X
+ X X X X
+ X X X X
+
+ X X X X X
+ X X X
+ X X X
+ X X X
+ X X X
+
+ X X X X X
+ X X
+ X X
+ X X
+ X X
+
+ X X X X X
+ X X
+ X
+*/
